@@ -1,0 +1,77 @@
+/* Navbar.css - Black Background, White Items, Clean Hover */
+
+.navbar {
+    background-color: #1a1a1a; /* Darker charcoal black for the background */
+    color: #ffffff; /* Pure white for text */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px; /* Generous padding for visual breathing room */
+    border-radius: 0 0 16px 16px; /* Soft, rounded bottom corners */
+    
+    /* Subtle, deep shadow for a "floating" effect against the page */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); 
+    
+    /* Optional: Very subtle gradient for depth, or remove for pure flat black */
+    background-image: linear-gradient(to right, #1a1a1a, #2a2a2a); 
+    
+    transition: all 0.3s ease-in-out; /* Smooth transitions for any layout changes */
+}
+
+.navbar-brand {
+    font-size: 26px; /* Prominent brand text */
+    font-weight: 700; /* Bold */
+    letter-spacing: -0.5px; /* Tighter look for brand */
+    color: #ffffff; /* Explicitly white for the brand */
+    /* Optional: A very faint text shadow for definition on dark */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-links {
+    display: flex;
+    gap: 30px; /* Increased spacing between navigation items for clarity */
+}
+
+.navbar-links a,
+.navbar-links button {
+    color: #ffffff; /* White text for all links/buttons */
+    text-decoration: none;
+    font-weight: 500; /* Standard font weight for readability */
+    background: transparent; /* No background by default */
+    border: none; /* No border by default */
+    padding: 10px 18px; /* Good size for clickable area */
+    border-radius: 8px; /* Slightly rounded edges for items */
+    cursor: pointer;
+    
+    /* Smooth transitions for hover effects */
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Modern, clean font stack */
+    letter-spacing: 0.2px; /* Subtle letter spacing */
+}
+
+.navbar-links a:hover,
+.navbar-links button:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Subtle white overlay on hover */
+    color: #ffffff; /* Ensure text remains white */
+    transform: translateY(-2px); /* Gentle lift effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Soft shadow on hover for more depth */
+}
+
+/* Optional: "Active" state for the current page link */
+.navbar-links a.active,
+.navbar-links button.active {
+    background-color: rgba(255, 255, 255, 0.25); /* More prominent background for active link */
+    font-weight: 600; /* Slightly bolder for active */
+    /* Add a subtle bottom border for a stronger active indicator */
+    border-bottom: 3px solid #6366f1; /* A pop of indigo color */
+    padding-bottom: 7px; /* Adjust padding to accommodate the border */
+    border-radius: 8px 8px 0 0; /* Keep top corners rounded, flatten bottom for border */
+}
+
+/* Optional: Focus state for accessibility */
+.navbar-links a:focus,
+.navbar-links button:focus {
+    outline: 2px solid #6366f1; /* A clear focus outline */
+    outline-offset: 2px;
+}
