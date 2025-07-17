@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://mern-backend-tbwb.onrender.com/api",
+  baseURL: process.env.REACT_APP_API_URL, // ✅ Dynamic base URL
 });
 
-// Add token if exists
+// Automatically add token if exists
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("token");
   if (token) {
