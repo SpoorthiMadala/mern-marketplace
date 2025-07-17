@@ -29,7 +29,7 @@ const handleDelete = async (id) => {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 useEffect(() => {
   fetchProducts();
-}, []);
+}, [fetchProducts]);
 
 
   return (
