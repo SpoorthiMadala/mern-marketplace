@@ -1,29 +1,30 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import './MyProduct.css';
-
 const MyProducts = () => {
   const [products, setProducts] = useState([]);
+const API_BASE = process.env.REACT_APP_API_URL;
 
-  const fetchProducts = async () => {
-    const token = localStorage.getItem("token");
-    const res = await axios.get("http://localhost:5000/api/products/mine", {
+
+const fetchProducts = async () => {
+  const token = localStorage.getItem("token");
+  const res = await axios.get(`${API_BASE}/products/mine`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  setProducts(res.data);
+};
+
+const handleDelete = async (id) => {
+  const token = localStorage.getItem("token");
+  try {
+    await axios.delete(`${API_BASE}/products/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    setProducts(res.data);
-  };
-
-  const handleDelete = async (id) => {
-    const token = localStorage.getItem("token");
-    try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setProducts(products.filter((product) => product._id !== id));
-    } catch (err) {
-      alert("Error deleting product");
-    }
-  };
+    setProducts(products.filter((product) => product._id !== id));
+  } catch (err) {
+    alert("Error deleting product");
+  }
+};
 
   useEffect(() => {
     fetchProducts();
