@@ -40,7 +40,7 @@ const AddProduct = () => {
 
       const token = localStorage.getItem("token");
 
-      const res = await axios.post("http://localhost:5000/api/products", formData, {
+      const res = await axios.post("https://mern-backend-tbwb.onrender.com", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
