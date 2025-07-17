@@ -24,6 +24,7 @@ app.use("/api/upload", uploadRoutes);
 app.get("/", (req, res) => res.send("API is running"));
 
 // Start server
-const port = 5000;
+
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`Server started on port ${PORT}`));
+
